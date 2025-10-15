@@ -151,19 +151,45 @@ function createGaugeChart(canvasId, value, color) {
     ],
   });
 }
+function getRandomNumbers() {
+  const randomNum = Math.floor(Math.random() * (97 - 40 + 1)) + 40;
+  return randomNum;
+}
 
 // Create Gauge Charts และอัปเดตค่า
 createGaugeChart(
   "availabilityGauge",
-  updateAvailability(62, 55, 75, 45, 90),
+  updateAvailability(
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers()
+  ),
   "#ff3b30"
 );
 createGaugeChart(
   "performanceGauge",
-  updatePerformance(73, 65, 75, 47, 83),
+  updatePerformance(
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers()
+  ),
   "#4ecdc4"
 );
-createGaugeChart("qualityGauge", updateQuality(100, 82, 86, 75, 51), "#9b59b6");
+createGaugeChart(
+  "qualityGauge",
+  updateQuality(
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers(),
+    getRandomNumbers()
+  ),
+  "#9b59b6"
+);
 
 // คำนวณ OEE หลังจากมีค่าแล้ว
 let oee = calculateOEE();
@@ -236,31 +262,43 @@ new Chart(trendCtx, {
     labels: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม"],
     datasets: [
       {
-        data: [18, 16, 30, 40, 50],
+        label: "Machine 1",
+        data: [18, 16, 30, 40, 45],
         borderColor: "#2c3e50",
         backgroundColor: "transparent",
-        tension: 1,
+        tension: 0.3,
         borderWidth: 2,
       },
       {
+        label: "Machine 2",
         data: [10, 5, 40, 15, 32],
         borderColor: "#4ecdc4",
         backgroundColor: "transparent",
-        tension: 0.4,
+        tension: 0.3,
         borderWidth: 2,
       },
       {
+        label: "Machine 3",
         data: [13, 15, 38, 32, 42],
         borderColor: "#3498db",
         backgroundColor: "transparent",
-        tension: 0.4,
+        tension: 0.3,
         borderWidth: 2,
       },
       {
+        label: "Machine 4",
         data: [8, 13, 25, 30, 41],
         borderColor: "#9b59b6",
         backgroundColor: "transparent",
-        tension: 0.4,
+        tension: 0.3,
+        borderWidth: 2,
+      },
+      {
+        label: "Machine 5",
+        data: [10, 16, 20, 35, 40],
+        borderColor: "#ca87e4ff",
+        backgroundColor: "transparent",
+        tension: 0.3,
         borderWidth: 2,
       },
     ],
@@ -269,8 +307,11 @@ new Chart(trendCtx, {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: false,
+      plugins: {
+        legend: {
+          display: true, // เปิด legend เพื่อแสดง label
+          position: "top",
+        },
       },
     },
     scales: {
