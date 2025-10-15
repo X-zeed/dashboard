@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OEE Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="top-section">
+        <div class="oee-circle">
+          <canvas id="oeeChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="trendChart"></canvas>
+        </div>
+
+        <div class="report-panel">
+          <div class="report-title">Report</div>
+          <div class="machine-status">
+            <div class="status-toggle on">
+              <span class="status-text">ON</span>
+            </div>
+            <div class="machine-name">Machine1</div>
+            <div class="machine-time">14/10/2025-13:30</div>
+          </div>
+          <div class="machine-status">
+            <div class="status-toggle off">
+              <span class="status-text">OFF</span>
+            </div>
+            <div class="machine-name">Machine2</div>
+            <div class="machine-time">14/10/2025-13:00</div>
+          </div>
+          <div class="machine-status">
+            <div class="status-toggle off">
+              <span class="status-text">OFF</span>
+            </div>
+            <div class="machine-name">Machine3</div>
+            <div class="machine-time">14/10/2025-12:30</div>
+          </div>
+          <div class="machine-status">
+            <div class="status-toggle on">
+              <span class="status-text">ON</span>
+            </div>
+            <div class="machine-name">Machine2</div>
+            <div class="machine-time">14/10/2025-11:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-section">
+        <div class="metric-card">
+          <div class="metric-title">Availability</div>
+          <div class="gauge">
+            <canvas id="availabilityGauge"></canvas>
+          </div>
+          <div class="machine-list">
+            <div class="machine-item">
+              <div class="machine-label">Machine1</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Availability_Machine1"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine2</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Availability_Machine2"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine3</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Availability_Machine3"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine4</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Availability_Machine4"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine5</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Availability_Machine5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-title">Performance</div>
+          <div class="gauge">
+            <canvas id="performanceGauge"></canvas>
+          </div>
+          <div class="machine-list">
+            <div class="machine-item">
+              <div class="machine-label">Machine1</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Performance_Machine1"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine2</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Performance_Machine2"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine3</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Performance_Machine3"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine4</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Performance_Machine4"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine5</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Performance_Machine5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-title">Quality</div>
+          <div class="gauge">
+            <canvas id="qualityGauge"></canvas>
+          </div>
+          <div class="machine-list">
+            <div class="machine-item">
+              <div class="machine-label">Machine1</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Quality_Machine1"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine2</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Quality_Machine2"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine3</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Quality_Machine3"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine4</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Quality_Machine4"></div>
+              </div>
+            </div>
+            <div class="machine-item">
+              <div class="machine-label">Machine5</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="Quality_Machine5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
